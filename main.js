@@ -8,7 +8,7 @@ function getRandomArray  (length, min, max){
     }
     return RandomArray;
 }
-console.log("Рандомний масив:  " , getRandomArray(6,-2, 5))
+console.log("Random Array:  " , getRandomArray(6,-2, 5))
 //..2
 function getModa (arr) {
     const mode = {};
@@ -37,7 +37,7 @@ function getAverage (arr) {
     })
    return +(sum/(arr.length )).toFixed(3);
 }
-console.log("Середнє арефметичне:  " ,getAverage(sortArr(testArray)))
+console.log("Average:  " ,getAverage(sortArr(testArray)))
 //..4
 function sortArr (arr) {
    let sort =  arr.sort((a , b) =>{
@@ -64,7 +64,7 @@ function  getMedian (arr) {
         return arr[num]
     }
 }
-console.log( "Медіана:  " , getMedian( sortArr(testArray)))
+console.log( "Median:  " , getMedian( sortArr(testArray)))
 
 //..5
 function filterEvenNumbers ( arr) {
@@ -73,7 +73,7 @@ function filterEvenNumbers ( arr) {
     } )
 
 }
-console.log("Not even " , filterEvenNumbers(RandomArray))
+console.log("Not even Random Array" , filterEvenNumbers(RandomArray))
 //..6
 function countPositiveNumbers (arr) {
     let count = 0;
@@ -91,7 +91,7 @@ function getDividedByFive( arr) {
         return (even % 5) == 0 ;
     } )
 }
-console.log('DividedByFive  ', getDividedByFive(testArray));
+console.log('Divided By Five  ', getDividedByFive(testArray));
 //..8
 function replaceBadWords(str){
 let badWords = /fuck|shit/gi ;
