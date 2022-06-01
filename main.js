@@ -104,19 +104,18 @@ const divideByThree = (word) =>  word.toLowerCase().match(/.{1,3}/g)
 console.log(divideByThree("Commander"));
 //..10
 function generateCombinations( word ){
-    if (word.length < 2) {
-        return [word];
-    } else {
-        let allAnswers = [];
-        for (let i = 0; i < word.length; i++) {
-            let letter = word[i];
-            let shorterWord = word.substr(0, i) + word.substr(i + 1, word.length - 1);
-            let shortwordArray = generateCombinations(shorterWord);
-            for (let j = 0; j < shortwordArray.length; j++) {
-                allAnswers.push(letter + shortwordArray[j]);
-            }
-        }
-        return allAnswers;
+    if (!word || typeof word !== "string"){
+        return "Please enter a string"
+    } else if (word.length < 2 ){
+        return word
     }
-}
+    let permutationsArray = []
+    for (let i = 0; i < word.length; i++){
+        let char = word[i]
+        let remainingChars = word.slice(0, i) + word.slice(i + 1, word.length)
+        for (let permutation of generateCombinations(remainingChars)){
+            permutationsArray.push(char + permutation) }
+    }
+    return permutationsArray
+    }
 console.log(generateCombinations("man"))
