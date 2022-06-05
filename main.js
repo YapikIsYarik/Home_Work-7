@@ -104,18 +104,21 @@ function generateCombinations(word) {
    if (!word || typeof word !== "string") {
       return "Please enter a string"
    } else if (word.length < 2) {
-      return word
+      return word;
    }
    let permutationsArray = []
    for (let i = 0; i < word.length; i++) {
       let char = word[i]
       let remainingChars = word.slice(0, i) + word.slice(i + 1, word.length)
       for (let permutation of generateCombinations(remainingChars)) {
-         permutationsArray.push(char + permutation)
+         let uniq = char + permutation;
+         if (permutationsArray.includes(uniq) == false) {
+            permutationsArray.push(uniq)
+         }
+
       }
    }
    return permutationsArray
 }
-
-console.log(generateCombinations('ol'))
+console.log(generateCombinations('see'))
 
