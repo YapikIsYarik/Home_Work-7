@@ -11,19 +11,23 @@ function getRandomArray(length, min, max) {
 console.log("Рандомний масив:  ", getRandomArray(6, -2, 5))
 //..2
 function getModa(arr) {
-   sortArr(arr);
-   const mode = {};
-   let max = 0, count = 0;
-   for (let i = 0; i < arr.length; i++) {
-      const item = arr[i];
-      mode[item] = (mode[item] || 0) + 1;
-      if (count < mode[item]) {
-         max = item;
-         count = mode[item];
+   const frequencyTable = {};
+   arr.forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
+   let modes = [];
+   let max = 0;
+   for (const key in frequencyTable) {
+      if (frequencyTable[key] > max) {
+         modes = [Number(key)];
+         max = frequencyTable[key];
+      }
+      else if (frequencyTable[key] === max) {
+         modes.push(Number(key));
       }
    }
-   return max;
+   if (modes.length === Object.keys(frequencyTable).length) modes = [];
+   return modes;
 }
+
 console.log('test array: ', testArray)
 console.log("Moda:  ", getModa(RandomArray))
 //..3
