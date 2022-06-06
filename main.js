@@ -24,7 +24,6 @@ function getModa(arr) {
          modes.push(Number(key));
       }
    }
-   if (modes.length === Object.keys(frequencyTable).length) modes = [];
    return modes;
 }
 
